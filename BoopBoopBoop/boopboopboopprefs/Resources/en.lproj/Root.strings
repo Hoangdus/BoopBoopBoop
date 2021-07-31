@@ -1,0 +1,15 @@
+{
+  "Passcode sound" = "Passcode sound";
+  "Wrong passcode sound" = "Wrong passcode sound";
+  "Charge sound(plug in)" = "Charge sound(plug in)";
+  "Charge sound(pull out)" = "Charge sound(pull out)";
+  "Lock sound" = "Lock sound";
+  "Unlock sound" = "Unlock sound";
+  "Custom sound" = "Custom sound";
+  "Play 1 sound" = "Play 1 sound";
+  "Number is to choose how many sounds you have(custom sound only), if Play 1 sound is on then it will choose the sound number instead(work with custom sound on and off)" = "Number is to choose how many sounds you have(custom sound only), if Play 1 sound is on then it will choose the sound number instead(work with custom sound on and off)";
+  "Respring" = "Respring";
+  "Links" = "Links";
+  "My twitter" = "My twitter";
+  "Source code and how to add custom sound" = "Source code and how to add custom sound";
+}
