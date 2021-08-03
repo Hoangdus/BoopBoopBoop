@@ -15,4 +15,6 @@ Customize iOS sound using mp3 file
 - Step 9: profit
 - Step 10: enjoy your custom sound
 
-Note: BoopBoopBoop was created under Riot Games' "Legal Jibber Jabber" policy using assets owned by Riot Games.  Riot Games does not endorse or sponsor this project.(I add this just in case lol)
+Note: for best result please keep your custom sound short idealy under 5 sec and for passcode sound I recommend even shorter but all type of sound support up to 30 sec at least according to Apple so go nut I guess
+
+More note: BoopBoopBoop was created under Riot Games' "Legal Jibber Jabber" policy using assets owned by Riot Games.  Riot Games does not endorse or sponsor this project.(I add this just in case lol)
