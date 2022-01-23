@@ -24,6 +24,10 @@ NSURL *POSoundURL;
 NSURL *LockSoundURL;
 NSURL *UnLSoundURL;
 
+UIImpactFeedbackGenerator *Clack;
+
+NSInteger hardness;
+
 static BOOL isPCEnable;
 static BOOL isCustomPCSoundOn;
 static BOOL isSinglePCSoundOn;
@@ -48,3 +52,5 @@ static BOOL isPOEnable;
 static BOOL isCustomPOSoundOn;
 static BOOL isSinglePOSoundOn;
 static int NofPOsounds;
+static BOOL Clackingbuttons;
+static int ClackingHardness;

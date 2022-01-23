@@ -1,6 +1,6 @@
 #import "BoopBoopBoop.h"
 
-void preferencesthings(){ //pref (look THICC)
+void preferencesthings(){ //pref (looks THICC)
 	NSDictionary *prefs = [[NSUserDefaults standardUserDefaults] persistentDomainForName:@"com.hoangdus.boopboopboopprefs"];
 	isPCEnable = (prefs && [prefs objectForKey:@"isPCEnable"] ? [[prefs valueForKey:@"isPCEnable"] boolValue] : YES );
 	isCustomPCSoundOn = (prefs && [prefs objectForKey:@"isCustomPCSoundOn"] ? [[prefs valueForKey:@"isCustomPCSoundOn"] boolValue] : NO );
@@ -26,12 +26,42 @@ void preferencesthings(){ //pref (look THICC)
 	isCustomPOSoundOn = (prefs && [prefs objectForKey:@"isCustomPOSoundOn"] ? [[prefs valueForKey:@"isCustomPOSoundOn"] boolValue] : NO );
 	isSinglePOSoundOn = (prefs && [prefs objectForKey:@"isSinglePOSoundOn"] ? [[prefs valueForKey:@"isSinglePOSoundOn"] boolValue] : NO );
 	NofPOsounds = (prefs && [prefs objectForKey:@"NofPOsounds"] ? [[prefs valueForKey:@"NofPOsounds"] integerValue] : 0 );
+    Clackingbuttons = (prefs && [prefs objectForKey:@"isClackingOn"] ? [[prefs valueForKey:@"isClackingOn"] boolValue] : NO );
+    ClackingHardness = (prefs && [prefs objectForKey:@"Clackhardness"] ? [[prefs valueForKey:@"Clackhardness"] integerValue] : 0 );
 }
 
-%hook SBUIPasscodeLockViewBase
+static void hapticpasscode() { //clacking button
+    
+	if (Clackingbuttons){
+        if (ClackingHardness == 0){
+			hardness = UIImpactFeedbackStyleLight;
+		}
+		if (ClackingHardness == 1){
+			hardness = UIImpactFeedbackStyleMedium;
+		}
+		if (ClackingHardness == 2){
+			hardness = UIImpactFeedbackStyleHeavy;
+		}
+        Clack = [[UIImpactFeedbackGenerator alloc] initWithStyle:(int)hardness];
+        [Clack prepare];
+        [Clack impactOccurred];
+	}
+}
+
+%hook SBUIPasscodeLockViewBase //remove default keypad sound
+
+-(void)setPlaysKeypadSounds:(BOOL)arg1{
+    if (isPCEnable){
+
+	}else{
+		%orig;
+	}
+}
 
 -(void)_sendDelegateKeypadKeyDown { //BOOP
-   
+
+    hapticpasscode();
+
 	if (isPCEnable){
 			PCSoundURL = [NSURL fileURLWithPath:[NSString stringWithFormat:@"/Library/PreferenceBundles/BoopBoopBoopPrefs.bundle/ASolsounds/boop%d.mp3", arc4random_uniform(3)]];
         if (isSinglePCSoundOn){
@@ -42,7 +72,7 @@ void preferencesthings(){ //pref (look THICC)
 	        PCSoundURL = [NSURL fileURLWithPath:[NSString stringWithFormat:@"/var/mobile/Documents/CustomSounds/PasscodeSounds/passcode%d.mp3", soundnumber[NofPCsounds]]];
         }
 	    SystemSoundID sound = 0;
-	    AudioServicesCreateSystemSoundID((CFURLRef) CFBridgingRetain(PCSoundURL), &sound);
+		AudioServicesCreateSystemSoundID((CFURLRef) CFBridgingRetain(PCSoundURL), &sound);
 	    AudioServicesPlaySystemSound((SystemSoundID)sound);
 	}else{
 		%orig;
@@ -122,6 +152,8 @@ void preferencesthings(){ //pref (look THICC)
 %hook SBCoverSheetPrimarySlidingViewController
 
 -(void)viewWillDisappear:(BOOL)arg1{ //unlock sound
+
+    Clack = nil;
 
     if (isUnLSEnable){
 		UnLSoundURL = [NSURL fileURLWithPath:[NSString stringWithFormat:@"/Library/PreferenceBundles/BoopBoopBoopPrefs.bundle/LockAndUnlockSounds/unlock.mp3"]];

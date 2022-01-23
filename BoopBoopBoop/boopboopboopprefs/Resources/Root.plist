@@ -87,6 +87,48 @@
 				<string>2</string>
 				<string>3</string>
 			</array>
+		</dict>
+		<dict>
+			<key>cell</key>
+			<string>PSSwitchCell</string>
+			<key>default</key>
+			<false/>
+			<key>defaults</key>
+			<string>com.hoangdus.boopboopboopprefs</string>
+			<key>PostNotification</key>
+			<string>com.hoangdus.boopboopboopprefs-updated</string>
+			<key>key</key>
+			<string>isClackingOn</string>
+			<key>label</key>
+			<string>Clacking buttons</string>
+			<key>cellClass</key>
+			<string>BOPSwitchCell</string>
+		</dict>
+		<dict>
+			<key>cell</key>
+			<string>PSSegmentCell</string>
+			<key>default</key>
+			<integer>0</integer>
+			<key>defaults</key>
+			<string>com.hoangdus.boopboopboopprefs</string>
+			<key>PostNotification</key>
+			<string>com.hoangdus.boopboopboopprefs-updated</string>
+			<key>key</key>
+			<string>Clackhardness</string>
+			<key>detail</key>
+			<string>PSListItemsController</string>
+			<key>validValues</key>
+			<array>
+				<real>0</real>
+				<real>1</real>
+				<real>2</real>
+			</array>
+			<key>validTitles</key>
+			<array>
+				<string>light</string>
+				<string>medium</string>
+				<string>hard</string>
+			</array>
 		</dict>	
 		<dict>
 		    <key>cell</key>
@@ -482,7 +524,7 @@
 			<key>cell</key>
 			<string>PSGroupCell</string>
 			<key>label</key>
-			<string>Number is to choose how many sounds you have(custom sound only), if Play 1 sound is on then it will choose the sound number instead(work with custom sound on and off)</string>
+			<string>Number is to choose how many sounds you have(custom sound only), if Play 1 sound is on then it will choose the sound number instead(work with custom sound on or off)</string>
 		</dict>
 		<dict>
 			<key>cell</key>

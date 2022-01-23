@@ -6,7 +6,7 @@ include /var/theos/makefiles/common.mk
 
 TWEAK_NAME = BoopBoopBoop
 
-BoopBoopBoop_FILES = Tweak.x
+BoopBoopBoop_FILES = BoopBoopBoop.x
 BoopBoopBoop_CFLAGS = -fobjc-arc
 
 include $(THEOS_MAKE_PATH)/tweak.mk

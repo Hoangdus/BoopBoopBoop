@@ -1,6 +1,6 @@
 Package: com.hoangdus.boopboopboop
 Name: BoopBoopBoop
-Version: 0.0.1
+Version: 0.0.2
 Architecture: iphoneos-arm
 Description: Custom sound for iOS
 Maintainer: Hoangdus

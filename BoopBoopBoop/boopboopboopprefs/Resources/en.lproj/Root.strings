@@ -1,5 +1,9 @@
 {
   "Passcode sound" = "Passcode sound";
+  "Clacking buttons" = "Clacking buttons";
+  "light" = "Light";
+  "medium" = "Medium";
+  "hard" = "Hard";
   "Wrong passcode sound" = "Wrong passcode sound";
   "Charge sound(plug in)" = "Charge sound(plug in)";
   "Charge sound(pull out)" = "Charge sound(pull out)";
