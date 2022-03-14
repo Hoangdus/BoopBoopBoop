@@ -30,6 +30,9 @@ void preferencesthings(){ //pref (looks THICC)
     ClackingHardness = (prefs && [prefs objectForKey:@"Clackhardness"] ? [[prefs valueForKey:@"Clackhardness"] integerValue] : 0 );
 }
 
+//checking for eneko
+NSString *Eneko = @"/usr/lib/Tweakinject/Eneko.dylib";
+
 static void hapticpasscode() { //clacking button
     
 	if (Clackingbuttons){
@@ -51,11 +54,15 @@ static void hapticpasscode() { //clacking button
 %hook SBUIPasscodeLockViewBase //remove default keypad sound
 
 -(void)setPlaysKeypadSounds:(BOOL)arg1{
-    if (isPCEnable){
-
-	}else{
+    if ([[NSFileManager defaultManager]fileExistsAtPath:Eneko]){
 		%orig;
-	}
+	}else{
+		if (isPCEnable){
+
+	    }else{
+		    %orig;
+	    }
+	}	
 }
 
 -(void)_sendDelegateKeypadKeyDown { //BOOP
