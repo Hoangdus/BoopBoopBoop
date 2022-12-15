@@ -560,6 +560,14 @@
 			<key>label</key>
 			<string>Source code and how to add custom sound</string>
 		</dict>
+                <dict>
+			<key>action</key>
+			<string>paypal</string>
+			<key>cell</key>
+			<string>PSButtonCell</string>
+			<key>label</key>
+			<string>Buy me a Fanta</string>
+		</dict>
 	</array>
 	<key>title</key>
 	<string></string>

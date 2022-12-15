@@ -31,11 +31,10 @@ void preferencesthings(){ //pref (looks THICC)
 }
 
 //checking for eneko
-NSString *Eneko = @"/usr/lib/Tweakinject/Eneko.dylib";
+//NSString *Eneko = @"/usr/lib/Tweakinject/Eneko.dylib";
 
 static void hapticpasscode() { //clacking button
-    
-	if (Clackingbuttons){
+    if (Clackingbuttons){
         if (ClackingHardness == 0){
 			hardness = UIImpactFeedbackStyleLight;
 		}
@@ -51,24 +50,23 @@ static void hapticpasscode() { //clacking button
 	}
 }
 
-%hook SBUIPasscodeLockViewBase //remove default keypad sound
+%hook SBUIPasscodeLockViewBase
 
--(void)setPlaysKeypadSounds:(BOOL)arg1{
-    if ([[NSFileManager defaultManager]fileExistsAtPath:Eneko]){
-		%orig;
-	}else{
-		if (isPCEnable){
-
-	    }else{
-		    %orig;
-	    }
-	}	
-}
+//-(void)setPlaysKeypadSounds:(BOOL)arg1{ //remove default keypad sound
+//    if ([[NSFileManager defaultManager]fileExistsAtPath:Eneko]){
+//		%orig;
+//	}else{
+//		if (isPCEnable){
+//
+//	    }else{
+//		    %orig;
+//	    }
+//	}
+//}
 
 -(void)_sendDelegateKeypadKeyDown { //BOOP
-
+    %orig;
     hapticpasscode();
-
 	if (isPCEnable){
 			PCSoundURL = [NSURL fileURLWithPath:[NSString stringWithFormat:@"/Library/PreferenceBundles/BoopBoopBoopPrefs.bundle/ASolsounds/boop%d.mp3", arc4random_uniform(3)]];
         if (isSinglePCSoundOn){
@@ -81,15 +79,15 @@ static void hapticpasscode() { //clacking button
 	    SystemSoundID sound = 0;
 		AudioServicesCreateSystemSoundID((CFURLRef) CFBridgingRetain(PCSoundURL), &sound);
 	    AudioServicesPlaySystemSound((SystemSoundID)sound);
+        PCSoundURL = nil;
 	}else{
-		%orig;
+		
 	}
 }
 
 %end
 
 %hook SBUIController //charge sound plug in and pull out
-
 -(void)ACPowerChanged{  
     %orig;
 	if ([self isOnAC]){
@@ -105,6 +103,7 @@ static void hapticpasscode() { //clacking button
 		    SystemSoundID sound = 0;
 	        AudioServicesCreateSystemSoundID((CFURLRef) CFBridgingRetain(PISoundURL), &sound);
 	        AudioServicesPlaySystemSound((SystemSoundID)sound);
+            PISoundURL = nil;
 		}else{
 			
 		}
@@ -121,6 +120,7 @@ static void hapticpasscode() { //clacking button
 		    SystemSoundID sound = 0;
 	        AudioServicesCreateSystemSoundID((CFURLRef) CFBridgingRetain(POSoundURL), &sound);
 	        AudioServicesPlaySystemSound((SystemSoundID)sound);
+            POSoundURL = nil;
 		}else{
 			
 		}
@@ -130,7 +130,6 @@ static void hapticpasscode() { //clacking button
 %end
 
 %hook SBLockScreenManager //wrong passcode sound
-
 -(void)attemptUnlockWithPasscode:(id)arg1 finishUIUnlock:(BOOL)arg2 completion:(id)arg3{ 
 	%orig;
 	if([self isUILocked]){     
@@ -146,66 +145,67 @@ static void hapticpasscode() { //clacking button
 		    SystemSoundID sound = 0;
             AudioServicesCreateSystemSoundID((CFURLRef) CFBridgingRetain(WPCSoundURL), &sound);
             AudioServicesPlaySystemSound((SystemSoundID)sound);
+            WPCSoundURL = nil;
 		}else{
-
+            
 		}	
 	}else{		
-		
+        
 	}
 }
 
 %end
 
 %hook SBCoverSheetPrimarySlidingViewController
-
 -(void)viewWillDisappear:(BOOL)arg1{ //unlock sound
-
+    %orig;
     Clack = nil;
-
     if (isUnLSEnable){
-		UnLSoundURL = [NSURL fileURLWithPath:[NSString stringWithFormat:@"/Library/PreferenceBundles/BoopBoopBoopPrefs.bundle/LockAndUnlockSounds/unlock.mp3"]];
-		if(isSingleUnLSoundOn){
-			UnLSoundURL = [NSURL fileURLWithPath:[NSString stringWithFormat:@"/Library/PreferenceBundles/BoopBoopBoopPrefs.bundle/LockAndUnlockSounds/unlock.mp3"]];	
-		}if(isCustomUnLSoundOn){
-            UnLSoundURL = [NSURL fileURLWithPath:[NSString stringWithFormat:@"/var/mobile/Documents/CustomSounds/UnlockSounds/unlock%d.mp3", arc4random_uniform(NofUnLSounds)]];
-		}if(isSingleUnLSoundOn && isCustomUnLSoundOn){
-            UnLSoundURL = [NSURL fileURLWithPath:[NSString stringWithFormat:@"/var/mobile/Documents/CustomSounds/UnlockSounds/unlock%d.mp3", soundnumber[NofUnLSounds]]];
-		}
-		if ([[%c(SBCoverSheetPresentationManager)sharedInstance] hasBeenDismissedSinceKeybagLock]){
-	        %orig;
-		}else{
-			SystemSoundID sound = 0;
+		if (![[%c(SBCoverSheetPresentationManager)sharedInstance] hasBeenDismissedSinceKeybagLock]){
+            UnLSoundURL = [NSURL fileURLWithPath:[NSString stringWithFormat:@"/Library/PreferenceBundles/BoopBoopBoopPrefs.bundle/LockAndUnlockSounds/unlock.mp3"]];
+            if(isSingleUnLSoundOn){
+                UnLSoundURL = [NSURL fileURLWithPath:[NSString stringWithFormat:@"/Library/PreferenceBundles/BoopBoopBoopPrefs.bundle/LockAndUnlockSounds/unlock.mp3"]];
+            }if(isCustomUnLSoundOn){
+                UnLSoundURL = [NSURL fileURLWithPath:[NSString stringWithFormat:@"/var/mobile/Documents/CustomSounds/UnlockSounds/unlock%d.mp3", arc4random_uniform(NofUnLSounds)]];
+            }if(isSingleUnLSoundOn && isCustomUnLSoundOn){
+                UnLSoundURL = [NSURL fileURLWithPath:[NSString stringWithFormat:@"/var/mobile/Documents/CustomSounds/UnlockSounds/unlock%d.mp3", soundnumber[NofUnLSounds]]];
+            }
+            SystemSoundID sound = 0;
             AudioServicesCreateSystemSoundID((CFURLRef) CFBridgingRetain(UnLSoundURL), &sound);
             AudioServicesPlaySystemSound((SystemSoundID)sound);
+            UnLSoundURL = nil;
+		}else{
+            
 		}	
     }else{
-		%orig;
+        
     }		
 }
 
 %end
 
 %hook SBSleepWakeHardwareButtonInteraction //lock sound
-
--(void)_playLockSound{ 
+-(void)_playLockSound{
+    %orig;
     if (isLSEnable){
-		LockSoundURL = [NSURL fileURLWithPath:[NSString stringWithFormat:@"/Library/PreferenceBundles/BoopBoopBoopPrefs.bundle/ASolsounds/lock.mp3"]];
-		if(isSingleLSoundOn){
-			LockSoundURL = [NSURL fileURLWithPath:[NSString stringWithFormat:@"/Library/PreferenceBundles/BoopBoopBoopPrefs.bundle/ASolsounds/lock.mp3"]];	
-		}if(isCustomLSoundOn){
-            LockSoundURL = [NSURL fileURLWithPath:[NSString stringWithFormat:@"/var/mobile/Documents/CustomSounds/LockSounds/lock%d.mp3", arc4random_uniform(NofLSounds)]];
-		}if(isSingleLSoundOn && isCustomLSoundOn){
-            LockSoundURL = [NSURL fileURLWithPath:[NSString stringWithFormat:@"/var/mobile/Documents/CustomSounds/LockSounds/lock%d.mp3", soundnumber[NofLSounds]]];
-		}
-	    if ([[%c(SBLockScreenManager)sharedInstance] isUILocked]){ 
-		    %orig;
-	    }else{
-	        SystemSoundID sound = 0;
+	    if (![[%c(SBLockScreenManager)sharedInstance] isUILocked]){
+            LockSoundURL = [NSURL fileURLWithPath:[NSString stringWithFormat:@"/Library/PreferenceBundles/BoopBoopBoopPrefs.bundle/ASolsounds/lock.mp3"]];
+            if(isSingleLSoundOn){
+                LockSoundURL = [NSURL fileURLWithPath:[NSString stringWithFormat:@"/Library/PreferenceBundles/BoopBoopBoopPrefs.bundle/ASolsounds/lock.mp3"]];
+            }if(isCustomLSoundOn){
+                LockSoundURL = [NSURL fileURLWithPath:[NSString stringWithFormat:@"/var/mobile/Documents/CustomSounds/LockSounds/lock%d.mp3", arc4random_uniform(NofLSounds)]];
+            }if(isSingleLSoundOn && isCustomLSoundOn){
+                LockSoundURL = [NSURL fileURLWithPath:[NSString stringWithFormat:@"/var/mobile/Documents/CustomSounds/LockSounds/lock%d.mp3", soundnumber[NofLSounds]]];
+            }
+            SystemSoundID sound = 0;
             AudioServicesCreateSystemSoundID((CFURLRef) CFBridgingRetain(LockSoundURL), &sound);
             AudioServicesPlaySystemSound((SystemSoundID)sound);
+            LockSoundURL = nil;
+	    }else{
+            
 	    }
     }else{
-	    %orig;
+	    
     }
 }
 

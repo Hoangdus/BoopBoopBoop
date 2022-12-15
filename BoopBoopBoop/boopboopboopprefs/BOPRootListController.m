@@ -23,6 +23,11 @@
 - (void)twitter{ //handle "twitter" button
   [[UIApplication sharedApplication]openURL:[NSURL URLWithString:@"https://twitter.com/Hoangdev23"]options:@{} completionHandler:nil];
 }
+
+- (void)paypal{ //handle "paypal" button
+  [[UIApplication sharedApplication]openURL:[NSURL URLWithString:@"https://www.paypal.com/paypalme/HoangDus"]options:@{} completionHandler:nil];
+}
+
 @end
 
 @implementation BOPHeaderCell
@@ -31,7 +36,7 @@
   self = [super initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"Cell"];
 
   if (self) {
-    UILabel *title = [[UILabel alloc] initWithFrame:CGRectMake(30, 30, self.frame.size.width, 60)];
+    UILabel *title = [[UILabel alloc] initWithFrame:CGRectMake(0, 30, self.frame.size.width, 60)];
     title.numberOfLines = 1;
     title.font = [UIFont systemFontOfSize:35];
     title.text = @"Boop Boop Boop";
@@ -39,7 +44,7 @@
     title.textAlignment = NSTextAlignmentCenter;
     [self addSubview:title];
 
-    UILabel *subtitle = [[UILabel alloc] initWithFrame:CGRectMake(30, 75, self.frame.size.width, 60)];
+    UILabel *subtitle = [[UILabel alloc] initWithFrame:CGRectMake(0, 75, self.frame.size.width, 60)];
     subtitle.numberOfLines = 2;
     subtitle.font = [UIFont systemFontOfSize:20];
     subtitle.text = @"-Aurelion Sol \n By Hoangdus";
