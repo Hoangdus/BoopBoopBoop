@@ -1,19 +1,54 @@
-{
-  "Passcode sound" = "Passcode sound";
-  "Clacking buttons" = "Clacking buttons";
-  "light" = "Light";
-  "medium" = "Medium";
-  "hard" = "Hard";
-  "Wrong passcode sound" = "Wrong passcode sound";
-  "Charge sound(plug in)" = "Charge sound(plug in)";
-  "Charge sound(pull out)" = "Charge sound(pull out)";
-  "Lock sound" = "Lock sound";
-  "Unlock sound" = "Unlock sound";
-  "Custom sound" = "Custom sound";
-  "Play 1 sound" = "Play 1 sound";
-  "Number is to choose how many sounds you have(custom sound only), if Play 1 sound is on then it will choose the sound number instead(work with custom sound on or off)" = "Number is to choose how many sounds you have(custom sound only), if Play 1 sound is on then it will choose the sound number instead(work with custom sound on or off)";
-  "Respring" = "Respring";
-  "Links" = "Links";
-  "My twitter" = "My twitter";
-  "Source code and how to add custom sound" = "Source code and how to add custom sound";
-}
+
+
+"Buy me a Fanta" = "Buy me a Fanta 🥤";
+
+
+"Charge sound(plug in)" = "Charge sound(plug in)";
+
+
+"Charge sound(pull out)" = "Charge sound(pull out)";
+
+
+"Clacking buttons" = "Clacking buttons";
+
+
+"Custom sound" = "Custom sound";
+
+
+"Links" = "Links";
+
+
+"Lock sound" = "Lock sound";
+
+
+"My twitter" = "My twitter";
+
+
+"Number is to choose how many sounds you have(custom sound only), if Play 1 sound is on then it will choose the sound number instead(work with custom sound on or off)" = "Number is to choose how many sounds you have(custom sound only), if Play 1 sound is on then it will choose the sound number instead(work with custom sound on or off)";
+
+
+"Passcode sound" = "Passcode sound";
+
+
+"Play 1 sound" = "Play 1 sound";
+
+
+"Respring" = "Respring";
+
+
+"Source code and how to add custom sound" = "Source code and how to add custom sound";
+
+
+"Unlock sound" = "Unlock sound";
+
+
+"Wrong passcode sound" = "Wrong passcode sound";
+
+
+"hard" = "Hard";
+
+
+"light" = "Light";
+
+
+"medium" = "Medium";

@@ -1,19 +1,54 @@
-{
-  "Passcode sound" = "Âm nhập mật khẩu";
-  "Clacking buttons" = "Rung";
-  "light" = "Nhẹ";
-  "medium" = "Trung bình";
-  "hard" = "Mạnh";
-  "Wrong passcode sound" = "Âm nhập mật khẩu sai";
-  "Charge sound(plug in)" = "Âm sạc(cắm vào)";
-  "Charge sound(pull out)" = "Âm sạc(rút ra)";
-  "Lock sound" = "Âm khóa";
-  "Unlock sound" = "Âm mở khóa";
-  "Custom sound" = "Âm tùy chỉnh";
-  "Play 1 sound" = "Đơn âm";
-  "Number is to choose how many sounds you have(custom sound only), if Play 1 sound is on then it will choose the sound number instead(work with custom sound on or off)" = "Số là để chọn bao nhiêu âm thanh mà bạn có(Âm tùy chỉnh) nếu Đơn âm bật thì sẽ chọn số của âm thanh(hoạt động với với cả Âm tùy chỉnh tắt hay bật)";
-  "Respring" = "Respring";
-  "Links" = "Liên kết";
-  "My twitter" = "Twitter của thôi";
-  "Source code and how to add custom sound" = "Mã nguồn và cách dùng âm tùy chỉnh";
-}
+
+
+"Buy me a Fanta" = "Mua tôi 1 lon Fanta 🥤";
+
+
+"Charge sound(plug in)" = "Âm sạc(cắm vào)";
+
+
+"Charge sound(pull out)" = "Âm sạc(rút ra)";
+
+
+"Clacking buttons" = "Rung";
+
+
+"Custom sound" = "Âm tùy chỉnh";
+
+
+"Links" = "Liên kết";
+
+
+"Lock sound" = "Âm khóa";
+
+
+"My twitter" = "Twitter của thôi";
+
+
+"Number is to choose how many sounds you have(custom sound only), if Play 1 sound is on then it will choose the sound number instead(work with custom sound on or off)" = "Số là để chọn bao nhiêu âm thanh mà bạn có(Âm tùy chỉnh) nếu Đơn âm bật thì sẽ chọn số của âm thanh(hoạt động với với cả Âm tùy chỉnh tắt hay bật)";
+
+
+"Passcode sound" = "Âm nhập mật khẩu";
+
+
+"Play 1 sound" = "Đơn âm";
+
+
+"Respring" = "Respring";
+
+
+"Source code and how to add custom sound" = "Mã nguồn và cách dùng âm tùy chỉnh";
+
+
+"Unlock sound" = "Âm mở khóa";
+
+
+"Wrong passcode sound" = "Âm nhập mật khẩu sai";
+
+
+"hard" = "Mạnh";
+
+
+"light" = "Nhẹ";
+
+
+"medium" = "Trung bình";
